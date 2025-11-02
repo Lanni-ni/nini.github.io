@@ -5,84 +5,166 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lanni Bu</title>
   <style>
-    body {
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      margin: 0;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      z-index: 10;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-    nav a:hover {
-      color: #0077cc;
-    }
-    main {
-      display: flex;
-      margin-top: 70px;
-    }
-    .sidebar {
-      width: 25%;
-      background: #fafafa;
-      padding: 30px;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-      height: 100vh;
-      position: fixed;
-      overflow-y: auto;
-    }
-    .sidebar img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    .sidebar h1 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-    .sidebar p {
-      font-size: 14px;
-      line-height: 1.4;
-    }
-    .sidebar a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    .sidebar a:hover {
-      text-decoration: underline;
-    }
-    .content {
-      margin-left: 28%;
-      padding: 40px;
-      max-width: 800px;
-    }
-    section {
-      margin-bottom: 60px;
-    }
-    h2 {
-      border-bottom: 2px solid #eee;
-      padding-bottom: 6px;
-    }
-    ul {
-      line-height: 1.6;
-    }
-  </style>
+  body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #f9f9ff 0%, #fffafd 100%);
+  }
+
+  /* 顶部导航栏 */
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #e8e9ff 0%, #fbe5f9 100%);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    z-index: 10;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #5c5ca8;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #c179b9; /* 淡粉紫悬停色 */
+  }
+
+  main {
+    display: flex;
+    margin-top: 70px;
+  }
+
+  /* 左侧栏 */
+  .sidebar {
+    width: 25%;
+    background: linear-gradient(180deg, #f3e8ff 0%, #e3f1ff 100%);
+    padding: 30px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+  }
+
+  .sidebar img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 3px solid #ece6ff;
+  }
+
+  .sidebar h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #5448a2;
+  }
+
+  .sidebar p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .sidebar a {
+    color: #7d72f2;
+    text-decoration: none;
+  }
+
+  .sidebar a:hover {
+    text-decoration: underline;
+    color: #c179b9;
+  }
+
+  /* 右侧正文 */
+  .content {
+    margin-left: 28%;
+    padding: 40px;
+    max-width: 800px;
+  }
+
+  section {
+    margin-bottom: 60px;
+    background: #ffffffc9;
+    border-radius: 12px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+  }
+
+  section:hover {
+    transform: translateY(-3px);
+  }
+
+  h2 {
+    border-bottom: 2px solid #e3dfff;
+    padding-bottom: 6px;
+    color: #5a50bf;
+  }
+
+  ul {
+    line-height: 1.6;
+  }
+
+  /* Publications 链接样式 */
+  #publications a {
+    color: #5574cc; /* 淡蓝 */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  #publications a:hover {
+    color: #ba6edb; /* 悬停变淡紫粉 */
+    text-decoration: underline;
+  }
+
+  /* PDF / Code / Resource 按钮 */
+  #publications span a {
+    padding: 3px 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    color: white;
+    font-weight: 500;
+  }
+
+  #publications a[href*="arxiv"],
+  #publications a[href*="pdf"],
+  #publications a[href*="PDF"] {
+    background-color: #ffb6c1; /* 淡粉 */
+  }
+
+  #publications a[href*="Code"],
+  #publications a[href*="Resource"],
+  #publications a[href*="github"] {
+    background-color: #a2cffe; /* 淡蓝 */
+  }
+
+  #publications span a:hover {
+    filter: brightness(1.1);
+  }
+
+  /* 联系方式部分 */
+  #contact {
+    background: linear-gradient(180deg, #f8f5ff 0%, #fff5fa 100%);
+  }
+
+  #contact p {
+    color: #5b5b8a;
+    font-weight: 500;
+  }
+</style>
 </head>
 <body>
   <header>
