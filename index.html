@@ -116,43 +116,61 @@
     line-height: 1.6;
   }
 
-  /* Publications 样式 */
-  #publications a {
-    color: #2956a3; /* 深蓝色链接 */
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+  /* === Publications 优化样式 === */
+  .pub-entry {
+    background: #ffffffcc;
+    border-radius: 10px;
+    padding: 15px 18px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
   }
 
-  #publications a:hover {
-    color: #a76ecf; /* 悬停时变淡紫 */
+  .pub-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  }
+
+  .pub-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #2b4f8c;
+    text-decoration: none;
+  }
+
+  .pub-title:hover {
+    color: #6d5ebf;
     text-decoration: underline;
   }
 
-  /* PDF / Code / Resource 按钮 */
-  #publications span a {
-    padding: 3px 8px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 13px;
-    color: white;
+  .pub-authors {
     font-weight: 500;
   }
 
-  #publications a[href*="arxiv"],
-  #publications a[href*="pdf"],
-  #publications a[href*="PDF"] {
-    background-color: #ffb6c1; /* 淡粉色 PDF */
+  .pub-buttons {
+    margin-top: 8px;
   }
 
-  #publications a[href*="Code"],
-  #publications a[href*="Poster"],
-  #publications a[href*="Resource"],
-  #publications a[href*="github"] {
-    background-color: #a2cffe; /* 淡蓝灰 */
+  .pub-buttons a {
+    text-decoration: none;
+    font-size: 13px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+    margin-right: 6px;
+    transition: all 0.2s ease;
   }
 
-  #publications span a:hover {
+  .btn-pdf {
+    background-color: #ffb6c1; /* 淡粉 */
+  }
+
+  .btn-code {
+    background-color: #a2cffe; /* 淡蓝 */
+  }
+
+  .pub-buttons a:hover {
     filter: brightness(1.1);
   }
 
@@ -211,43 +229,41 @@
       <section id="publications">
         <h2>Publications & Preprints</h2>
 
-        <ul style="list-style-type:none; padding-left:0;">
-          <li style="margin-bottom:25px;">
-            <a href="https://arxiv.org/abs/2510.17013" target="_blank" style="font-size:17px; font-weight:600;">
-              DiscoTrack: A Multilingual LLM Benchmark for Discourse Tracking
-            </a><br>
-            <span style="font-weight:500;">Lanni Bu</span>, Lauren Levin, Amir Zeldes.<br>
-            <i>arXiv preprint, 2025.</i><br>
-            <span style="display:inline-block; margin-top:5px;">
-              <a href="https://arxiv.org/abs/2510.17013" target="_blank">PDF</a>
-              <a href="https://github.com/Lanni-ni/discotrack" target="_blank">Code</a>
-            </span>
-          </li>
+        <div class="pub-entry">
+          <a href="https://arxiv.org/abs/2510.17013" target="_blank" class="pub-title">
+            DiscoTrack: A Multilingual LLM Benchmark for Discourse Tracking
+          </a><br>
+          <span class="pub-authors">Lanni Bu</span>, Lauren Levin, Amir Zeldes.<br>
+          <i>arXiv preprint, 2025.</i><br>
+          <div class="pub-buttons">
+            <a href="https://arxiv.org/abs/2510.17013" target="_blank" class="btn-pdf">PDF</a>
+            <a href="https://github.com/Lanni-ni/discotrack" target="_blank" class="btn-code">Code</a>
+          </div>
+        </div>
 
-          <li style="margin-bottom:25px;">
-            <a href="https://aclanthology.org/2025.udw-1.6/" target="_blank" style="font-size:17px; font-weight:600;">
-              UD-English-CHILDES: A Collected Resource of Gold and Silver Universal Dependencies Trees for Child Language Interactions
-            </a><br>
-            Xiulin Yang, Zhuoxuan Ju, <span style="font-weight:500;">Lanni Bu</span>, Zoey Liu, Nathan Schneider.<br>
-            <i>Proceedings of the Workshop on Universal Dependencies (UDW) at the Syntax Fest 2025.</i><br>
-            <span style="display:inline-block; margin-top:5px;">
-              <a href="https://aclanthology.org/2025.udw-1.6/" target="_blank">PDF</a>
-              <a href="https://github.com/UniversalDependencies/UD_English-CHILDES" target="_blank">Resource</a>
-            </span>
-          </li>
+        <div class="pub-entry">
+          <a href="https://aclanthology.org/2025.udw-1.6/" target="_blank" class="pub-title">
+            UD-English-CHILDES: A Collected Resource of Gold and Silver Universal Dependencies Trees for Child Language Interactions
+          </a><br>
+          Xiulin Yang, Zhuoxuan Ju, <span class="pub-authors">Lanni Bu</span>, Zoey Liu, Nathan Schneider.<br>
+          <i>Proceedings of the Workshop on Universal Dependencies (UDW) at SyntaxFest 2025.</i><br>
+          <div class="pub-buttons">
+            <a href="https://aclanthology.org/2025.udw-1.6/" target="_blank" class="btn-pdf">PDF</a>
+            <a href="https://github.com/UniversalDependencies/UD_English-CHILDES" target="_blank" class="btn-code">Resource</a>
+          </div>
+        </div>
 
-          <li style="margin-bottom:25px;">
-            <a href="#" style="font-size:17px; font-weight:600;">
-              Dependency-Based and Constituency-Based Inductive Biases for BabyLM: Comparison and Analysis
-            </a><br>
-            Zhuoxuan Ju, <span style="font-weight:500;">Lanni Bu</span>, Dagny Whall, Vattana Chan.<br>
-            <i>Georgetown University, 2024.</i><br>
-            <span style="display:inline-block; margin-top:5px;">
-              <a href="babylm_biases.pdf" target="_blank">PDF</a>
-              <a href="poster.pdf" target="_blank">Poster</a>
-            </span>
-          </li>
-        </ul>
+        <div class="pub-entry">
+          <a href="#" class="pub-title">
+            Dependency-Based and Constituency-Based Inductive Biases for BabyLM: Comparison and Analysis
+          </a><br>
+          Zhuoxuan Ju, <span class="pub-authors">Lanni Bu</span>, Dagny Whall, Vattana Chan.<br>
+          <i>Georgetown University, 2024.</i><br>
+          <div class="pub-buttons">
+            <a href="babylm_biases.pdf" target="_blank" class="btn-pdf">PDF</a>
+            <a href="poster.pdf" target="_blank" class="btn-code">Poster</a>
+          </div>
+        </div>
       </section>
 
       <section id="contact">
